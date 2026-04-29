@@ -15,6 +15,7 @@ const corsOptions = {
 
 // middlewares
 app.use(express.json());
+
 app.use(cors(corsOptions));
 
 // request logger
@@ -25,6 +26,8 @@ app.use((req, res, next) => {
 
 // routes (FIXED PREFIX)
 app.use('/api/users', userRoutes);
+app.use('/api/auth', userRoutes);
+app.use('/api/profile', userRoutes);
 
 // 404 handler (must be AFTER routes)
 app.use((req, res) => {
